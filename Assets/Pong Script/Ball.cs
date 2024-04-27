@@ -20,6 +20,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Tambahan
         //Start the match by clicking space
         if(Input.GetKeyDown(KeyCode.Space))
         {
