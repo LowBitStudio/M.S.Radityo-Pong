@@ -6,9 +6,16 @@ public class Ball : MonoBehaviour
 {
     [SerializeField]
     Vector2 Speed;
+    [SerializeField]
+    Vector2 resetpos;
     Rigidbody2D rb;
     bool GameStart;
     
+    public void ResetBall()
+    {
+        transform.position = new Vector2(resetpos.x, resetpos.y);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
