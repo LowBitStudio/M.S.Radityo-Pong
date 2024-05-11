@@ -32,7 +32,7 @@ public class PaddleControl : MonoBehaviour
     private void PaddleMovement(Vector2 movement)
     {
         //Check the paddle speed
-        Debug.Log("TEST: " + movement); //Alternatifnya bisa pakai rb.velocity.magnitude
+        //Debug.Log("TEST: " + movement); //Alternatifnya bisa pakai rb.velocity.magnitude
         //Speed paddle
         rb.velocity = movement;
     }

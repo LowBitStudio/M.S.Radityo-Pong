@@ -16,6 +16,11 @@ public class Ball : MonoBehaviour
         transform.position = new Vector2(resetpos.x, resetpos.y);
     }
 
+    public void ActivatePU(float magnitude)
+    {
+        rb.velocity *= magnitude;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
