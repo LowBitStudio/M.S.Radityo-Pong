@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -8,15 +9,21 @@ public class Ball : MonoBehaviour
     Vector2 Speed;
     [SerializeField]
     Vector2 resetpos;
-    Rigidbody2D rb;
-    bool GameStart;
+    [HideInInspector]
+    public Rigidbody2D rb;
+    [HideInInspector]
+    public bool GameStart;
+
+    public GameObject Paddle1;
+    public GameObject Paddle2;
+    public string LastHit;
     
     public void ResetBall()
     {
         transform.position = new Vector2(resetpos.x, resetpos.y);
     }
 
-    public void ActivatePU(float magnitude)
+    public void ActivateSpeedPU(float magnitude)
     {
         rb.velocity *= magnitude;
     }
@@ -33,23 +40,34 @@ public class Ball : MonoBehaviour
     void Update()
     {
         //Tambahan
-        //Start the match by clicking space
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(GameStart == false)
             {
-                //Memulai permainan
                 GameStart = true;
                 Debug.Log("Game started");
-                //Menggerakan bola ketika permainan mulai
                 rb.velocity = Speed;
-            }
+            }  
             else
             {
                 //Apabila menekan key space lagi, tidak akan berubah dan menyatakan
                 //permainan sudah dimulai
                 Debug.Log("Game already started");
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject == Paddle1)
+        {
+            LastHit = Paddle1.GetComponent<PaddleControl>().PaddleName;
+            Debug.Log("Hit " + LastHit);
+        } 
+        else if(collision.gameObject == Paddle2)
+        {
+            LastHit = Paddle2.GetComponent<PaddleControl>().PaddleName;
+            Debug.Log("Hit " + LastHit);
         }
     }
 }

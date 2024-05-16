@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PU_Manager : MonoBehaviour
 {
+    public Ball ball;
     public Transform spawnArea;
     public int MaxPowerUp;
     public int SpawnInterval;
@@ -21,11 +22,15 @@ public class PU_Manager : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if(timer > SpawnInterval)
+        //Metode timer update
+        if(ball.GameStart == true) //Power up mulai setelah game dimulai 
         {
-            GeneratePU();
-            timer -= SpawnInterval;
+            timer += Time.deltaTime;
+            if(timer >= SpawnInterval)
+            {
+                GeneratePU();
+                timer -= SpawnInterval;
+            }
         }
     }
 

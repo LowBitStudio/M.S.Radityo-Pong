@@ -5,8 +5,14 @@ using UnityEngine;
 public class PaddleControl : MonoBehaviour
 {
     //Var
-    [SerializeField]
+    Vector3 DefaultScale = new Vector3(0.3f, 2, 1);
+    Vector3 NewScale = new Vector3(0.3f, 4, 1);
+
+    public string PaddleName;
+
     float _paddleSpeed;
+    [SerializeField] 
+    float defaultSpeed;
     [SerializeField]
     KeyCode Up, Down;
     Rigidbody2D rb;
@@ -28,6 +34,27 @@ public class PaddleControl : MonoBehaviour
         return Vector2.zero;
     }
 
+    public void ActivateLongPaddle()
+    {
+        transform.localScale = NewScale;
+        StartCoroutine(DisableLongPaddle());
+    }
+    public void ActivateSpeedyPaddle()
+    {
+        _paddleSpeed *= 2;
+        StartCoroutine(DisableSpeedyPaddle());
+    }
+    private IEnumerator DisableLongPaddle()
+    {
+        yield return new WaitForSeconds(5);
+        transform.localScale = DefaultScale;
+    }
+    private IEnumerator DisableSpeedyPaddle()
+    {
+        yield return new WaitForSeconds(5);
+        _paddleSpeed = defaultSpeed;
+    }
+
     //Paddle movement
     private void PaddleMovement(Vector2 movement)
     {
@@ -41,7 +68,8 @@ public class PaddleControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        _paddleSpeed = 5;
+        transform.localScale = DefaultScale;
+        _paddleSpeed = defaultSpeed;
     }
 
     // Update is called once per frame
