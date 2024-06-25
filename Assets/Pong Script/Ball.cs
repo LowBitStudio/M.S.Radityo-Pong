@@ -17,6 +17,7 @@ public class Ball : MonoBehaviour
 
     public GameObject Paddle1;
     public GameObject Paddle2;
+    public UI_Manager UI;
     public string LastHit;
     GameInputAction Input;
     
@@ -54,6 +55,7 @@ public class Ball : MonoBehaviour
             GameStart = true;
             Debug.Log("Game started");
             rb.velocity = Speed;
+            UI.StartGame();
         }  
         else
         {
