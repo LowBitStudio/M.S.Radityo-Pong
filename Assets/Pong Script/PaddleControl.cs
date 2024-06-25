@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PaddleControl : MonoBehaviour
 {
@@ -14,26 +15,26 @@ public class PaddleControl : MonoBehaviour
     [SerializeField] 
     float defaultSpeed;
     [SerializeField]
-    KeyCode Up, Down;
+    InputAction _move;
     Rigidbody2D rb;
+
+    private void OnEnable()
+    {
+        _move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _move.Disable();
+    }
 
     //Controls here
     Vector2 movement()
     {
-        //Go up
-        if(Input.GetKey(Up))
-        {
-            return Vector2.up * _paddleSpeed;
-        }
-        //Go down
-        else if(Input.GetKey(Down))
-        {
-            return Vector2.down * _paddleSpeed;
-        } 
-        //When not input
-        return Vector2.zero;
+        return _move.ReadValue<Vector2>() * _paddleSpeed;
     }
 
+    //Power Up Functions
     public void ActivateLongPaddle()
     {
         transform.localScale = NewScale;
