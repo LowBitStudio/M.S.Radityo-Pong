@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     public int _awayScore;
     public int _maxScore;
     public Ball ball;
+    public UI_Manager UI;
 
     public void AddHomeScore(int increament)
     {
@@ -17,7 +18,8 @@ public class ScoreManager : MonoBehaviour
 
         if(_homeScore == _maxScore)
         {
-            GameOver();
+            //UI text said that P1 wins
+            UI.P1Wins();
         }
     }
 
@@ -28,7 +30,8 @@ public class ScoreManager : MonoBehaviour
         
         if(_awayScore == _maxScore)
         {
-            GameOver();
+            //UI text said that P2 Wins
+            UI.P2Wins();
         }
     }
 

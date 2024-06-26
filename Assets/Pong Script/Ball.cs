@@ -19,11 +19,13 @@ public class Ball : MonoBehaviour
     public GameObject Paddle2;
     public UI_Manager UI;
     public string LastHit;
+    public string WhoServed;
     GameInputAction Input;
     
     private void Awake()
     {
         Input = new GameInputAction();
+        WhoServed = "P1 Served";
     }
 
     private void OnEnable()
@@ -54,7 +56,8 @@ public class Ball : MonoBehaviour
         {
             GameStart = true;
             Debug.Log("Game started");
-            rb.velocity = Speed;
+            if(WhoServed == "P1 Served") rb.velocity = Speed;
+            else if(WhoServed == "P2 Served") rb.velocity = -Speed;
             UI.StartGame();
         }  
         else

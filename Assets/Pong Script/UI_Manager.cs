@@ -20,15 +20,20 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     GameObject PausePage;
     [SerializeField]
+    GameObject FinishPage;
+    [SerializeField]
     Button FirstSelected;
     GameInputAction Input;
 
-    [Header("Text Effect")]
+    [Header("Start Page")]
     public alphavalue CurrentValue;
     public float CommentMinAlpha;
     public float CommentMaxAlpha;
     public float CommentCurrentAlpha;
-    public TextMeshProUGUI MyText;
+    public TextMeshProUGUI StartText;
+
+    [Header("Finish Page")]
+    public TextMeshProUGUI FinishText;
 
     private void Awake()
     {
@@ -104,12 +109,25 @@ public class UI_Manager : MonoBehaviour
         SceneManager.LoadScene("Pong");
     }
 
+    public void P1Wins()
+    {
+        FinishPage.SetActive(true);
+        FinishText.text = "P1 WINS";
+        Time.timeScale = 0;
+    }
+    public void P2Wins()
+    {
+        FinishPage.SetActive(true);
+        FinishText.text = "P2 WINS";
+        Time.timeScale = 0;
+    }
+
     public void AlphaComments()
     {
         if(CurrentValue == alphavalue.Shrinking)
         {
             CommentCurrentAlpha -= 0.01f;
-            MyText.color = new Color(Color.white.r, Color.white.g, Color.white.b, CommentCurrentAlpha);
+            StartText.color = new Color(Color.white.r, Color.white.g, Color.white.b, CommentCurrentAlpha);
             if (CommentCurrentAlpha <= CommentMinAlpha)
             {
                 CurrentValue = alphavalue.Growing;
@@ -118,7 +136,7 @@ public class UI_Manager : MonoBehaviour
         else if(CurrentValue == alphavalue.Growing)
         {
             CommentCurrentAlpha += 0.01f;
-            MyText.color = new Color(Color.white.r, Color.white.g, Color.white.b, CommentCurrentAlpha);
+            StartText.color = new Color(Color.white.r, Color.white.g, Color.white.b, CommentCurrentAlpha);
             if (CommentCurrentAlpha >= CommentMaxAlpha)
             {
                 CurrentValue = alphavalue.Shrinking;
