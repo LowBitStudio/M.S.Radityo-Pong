@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     public void AddHomeScore(int increament)
     {
         _homeScore += increament;
-        ball.ResetBall();
+        StartCoroutine(ball.ResetBall());
 
         if(_homeScore == _maxScore)
         {
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     public void AddAwayScore(int increament)
     {
         _awayScore += increament;
-        ball.ResetBall();
+        StartCoroutine(ball.ResetBall());
         
         if(_awayScore == _maxScore)
         {

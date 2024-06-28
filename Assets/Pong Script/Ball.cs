@@ -20,12 +20,15 @@ public class Ball : MonoBehaviour
     public UI_Manager UI;
     public string LastHit;
     public string WhoServed;
+    public ParticleSystem BallParticle;
+    public SpriteRenderer sr;
     GameInputAction Input;
     
     private void Awake()
     {
         Input = new GameInputAction();
         WhoServed = "P1 Served";
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -40,9 +43,13 @@ public class Ball : MonoBehaviour
         Input.Player.Disable();
     }
 
-    public void ResetBall()
+    public IEnumerator ResetBall()
     {
-        transform.position = new Vector2(resetpos.x, resetpos.y);
+        BallParticle.Play(); //Play the particle
+        sr.enabled = false; //turn sprite off
+        yield return new WaitForSeconds(2f);
+        sr.enabled = true; //Turn back the renderer
+        transform.position = new Vector2(resetpos.x, resetpos.y); //reset the position
     }
 
     public void ActivateSpeedPU(float magnitude)
