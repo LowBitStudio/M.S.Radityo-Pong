@@ -418,7 +418,7 @@ Transform:
   m_GameObject: {fileID: 213482847}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.01, y: 0.04, z: 0}
+  m_LocalPosition: {x: 4, y: 0.04, z: 0}
   m_LocalScale: {x: 0.59147036, y: 0.59147036, z: 0.59147036}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -440,6 +440,10 @@ MonoBehaviour:
   ball: {fileID: 1047298098}
   paddle1: {fileID: 766937391}
   paddle2: {fileID: 223677586}
+  PU_Name: Long Paddle
+  FloatingTextPrefab: {fileID: 3467611228171559049, guid: eebf19ec73eadbf4fbfd6eb673708d00, type: 3}
+  PowerUpCollider: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!61 &213482850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1785,7 +1789,7 @@ Transform:
   m_GameObject: {fileID: 655779832}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.96, y: -0.01, z: 0}
+  m_LocalPosition: {x: 6, y: -0.01, z: 0}
   m_LocalScale: {x: 0.59147036, y: 0.59147036, z: 0.59147036}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1904,6 +1908,10 @@ MonoBehaviour:
   ball: {fileID: 1047298098}
   paddle1: {fileID: 766937391}
   paddle2: {fileID: 223677586}
+  PU_Name: Fast Paddle
+  FloatingTextPrefab: {fileID: 3467611228171559049, guid: eebf19ec73eadbf4fbfd6eb673708d00, type: 3}
+  PowerUpCollider: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!1 &736172713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,7 +1940,7 @@ Transform:
   m_GameObject: {fileID: 736172713}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.77, y: -0.11, z: 0}
+  m_LocalPosition: {x: 2, y: -0.000000014901161, z: 0}
   m_LocalScale: {x: 0.5975507, y: 0.5975507, z: 0.5975507}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1952,6 +1960,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PUM: {fileID: 863401985}
   ball: {fileID: 1047298098}
+  PU_Name: Speed Up
+  FloatingTextPrefab: {fileID: 3467611228171559049, guid: eebf19ec73eadbf4fbfd6eb673708d00, type: 3}
+  PowerUpCollider: {fileID: 0}
+  sr: {fileID: 0}
   magnitude: 2
 --- !u!212 &736172716
 SpriteRenderer:
