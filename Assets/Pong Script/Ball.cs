@@ -13,15 +13,19 @@ public class Ball : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     [HideInInspector]
-    public bool GameStart;
+    public bool GameStart, canpause;
 
     public GameObject Paddle1;
     public GameObject Paddle2;
     public UI_Manager UI;
     public string LastHit;
     public string WhoServed;
+    [Header("Visual Effects")]
     public ParticleSystem BallParticle;
     public SpriteRenderer sr;
+    [Header("Audio")]
+    public AudioSource SFX_Source;
+    public AudioClip[] SFX_Clip;
     GameInputAction Input;
     
     private void Awake()
@@ -47,6 +51,7 @@ public class Ball : MonoBehaviour
     {
         BallParticle.Play(); //Play the particle
         sr.enabled = false; //turn sprite off
+        SFX_Source.PlayOneShot(SFX_Clip[1]); //Play the blast sfx
         yield return new WaitForSeconds(2f);
         sr.enabled = true; //Turn back the renderer
         transform.position = new Vector2(resetpos.x, resetpos.y); //reset the position
@@ -62,6 +67,7 @@ public class Ball : MonoBehaviour
         if(GameStart == false)
         {
             GameStart = true;
+            canpause = true;
             Debug.Log("Game started");
             if(WhoServed == "P1 Served") rb.velocity = Speed;
             else if(WhoServed == "P2 Served") rb.velocity = -Speed;
@@ -95,11 +101,21 @@ public class Ball : MonoBehaviour
         {
             LastHit = Paddle1.GetComponent<PaddleControl>().PaddleName;
             Debug.Log("Hit " + LastHit);
+            //Play the hit sfx
+            SFX_Source.PlayOneShot(SFX_Clip[0]);
         } 
         else if(collision.gameObject == Paddle2)
         {
             LastHit = Paddle2.GetComponent<PaddleControl>().PaddleName;
             Debug.Log("Hit " + LastHit);
+            //Play the hit sfx
+            SFX_Source.PlayOneShot(SFX_Clip[0]);
+        }
+
+        if(collision.gameObject.tag == "Wall")
+        {
+            //Play the wall sfx
+            SFX_Source.PlayOneShot(SFX_Clip[2]);
         }
     }
 }

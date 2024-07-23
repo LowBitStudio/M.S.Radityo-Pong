@@ -25,6 +25,7 @@ public class PU_SpeedUp : MonoBehaviour
         if(other == ball)
         {
             ball.GetComponent<Ball>().ActivateSpeedPU(magnitude);
+            ball.GetComponent<Ball>().SFX_Source.PlayOneShot(ball.GetComponent<Ball>().SFX_Clip[3]);
             StartCoroutine(BallHit());
         } 
     }

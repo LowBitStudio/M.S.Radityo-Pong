@@ -37,6 +37,8 @@ public class PU_PaddleSpeed : MonoBehaviour
             {
                 return;
             }
+            //Play the sfx
+            ball.GetComponent<Ball>().SFX_Source.PlayOneShot(ball.GetComponent<Ball>().SFX_Clip[3]);
             //Destroy the object
             StartCoroutine(BallHit());
         } 

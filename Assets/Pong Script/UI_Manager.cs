@@ -16,13 +16,19 @@ public enum alphavalue
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField]
+    GameObject Ball;
+    [SerializeField]
     GameObject Start_Panel;
     [SerializeField]
     GameObject PausePage;
     [SerializeField]
     GameObject FinishPage;
     [SerializeField]
-    Button FirstSelected;
+    Button FirstSelected, GameOverSelected;
+    [SerializeField]
+    AudioSource SFX_Source;
+    [SerializeField]
+    AudioClip[] SFX_Clip = new AudioClip[3];
     GameInputAction Input;
 
     [Header("Start Page")]
@@ -40,6 +46,9 @@ public class UI_Manager : MonoBehaviour
         Input = new GameInputAction();
         Start_Panel.SetActive(true);
         Time.timeScale = 0f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Start()
@@ -70,18 +79,27 @@ public class UI_Manager : MonoBehaviour
     bool IsPaused;
     public void PauseGame(InputAction.CallbackContext context)
     {
-        IsPaused = !IsPaused;
-
-        if(IsPaused)
+        if(Ball.GetComponent<Ball>().canpause == true)
         {
-            PausePage.SetActive(true);
-            FirstSelected.Select();
-            Time.timeScale = 0;
+            IsPaused = !IsPaused;
+
+            if(IsPaused)
+            {
+                PausePage.SetActive(true);
+                FirstSelected.Select();
+                SFX_Source.PlayOneShot(SFX_Clip[2]);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                PausePage.SetActive(false);
+                SFX_Source.PlayOneShot(SFX_Clip[1]);
+                Time.timeScale = 1f;
+            }
         }
         else
         {
-            PausePage.SetActive(false);
-            Time.timeScale = 1f;
+            return;
         }
     }
 
@@ -89,11 +107,13 @@ public class UI_Manager : MonoBehaviour
     {
         Start_Panel.SetActive(false);
         Time.timeScale = 1f;
+        SFX_Source.PlayOneShot(SFX_Clip[0]);
     }
 
     public void BackToMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        SFX_Source.PlayOneShot(SFX_Clip[0]);
     }
 
     public void Continue()
@@ -101,11 +121,13 @@ public class UI_Manager : MonoBehaviour
         IsPaused = false;
         PausePage.SetActive(false);
         Time.timeScale = 1f;
+        SFX_Source.PlayOneShot(SFX_Clip[0]);
         Debug.Log("Continue the game");
     }
 
     public void Restart()
     {
+        SFX_Source.PlayOneShot(SFX_Clip[0]);
         SceneManager.LoadScene("Pong");
     }
 
@@ -113,12 +135,14 @@ public class UI_Manager : MonoBehaviour
     {
         FinishPage.SetActive(true);
         FinishText.text = "P1 WINS";
+        GameOverSelected.Select();
         Time.timeScale = 0;
     }
     public void P2Wins()
     {
         FinishPage.SetActive(true);
         FinishText.text = "P2 WINS";
+        GameOverSelected.Select();
         Time.timeScale = 0;
     }
 

@@ -11,6 +11,16 @@ public class MenuManager : MonoBehaviour
     GameObject Menu_Page, Play_Page, Credit_Page;
     [SerializeField]
     Button PrimaryMenuSelect, PrimaryPlaySelect, PrimaryCreditSelect;
+    [SerializeField]
+    AudioSource SFX_Source;
+    [SerializeField]
+    AudioClip[] SFX_Clip = new AudioClip[3];
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     public void Start()
     {
@@ -19,10 +29,12 @@ public class MenuManager : MonoBehaviour
 
     public void OnePlayer_Scene()
     {
+        SFX_Source.PlayOneShot(SFX_Clip[1]);
         SceneManager.LoadScene("Pong");
     }
     public void TwoPlayer_Scene()
     {
+        SFX_Source.PlayOneShot(SFX_Clip[1]);
         Debug.Log("Coming Soon");
         //SceneManager.LoadScene("Pong");
     }
@@ -34,12 +46,14 @@ public class MenuManager : MonoBehaviour
 
         if(PlayActive)
         {
+            SFX_Source.PlayOneShot(SFX_Clip[1]);
             Play_Page.SetActive(true);
             Menu_Page.SetActive(false);
             PrimaryPlaySelect.Select();
         }
         else
         {
+            SFX_Source.PlayOneShot(SFX_Clip[2]);
             Play_Page.SetActive(false);
             Menu_Page.SetActive(true);
             PrimaryMenuSelect.Select();
@@ -54,12 +68,14 @@ public class MenuManager : MonoBehaviour
 
         if(CreditActive)
         {
+            SFX_Source.PlayOneShot(SFX_Clip[1]);
             Credit_Page.SetActive(true);
             Menu_Page.SetActive(false);
             PrimaryCreditSelect.Select();
         } 
         else
         {
+            SFX_Source.PlayOneShot(SFX_Clip[2]);
             Credit_Page.SetActive(false);
             Menu_Page.SetActive(true);
             PrimaryMenuSelect.Select();
@@ -67,10 +83,12 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenUrl()
     {
+        SFX_Source.PlayOneShot(SFX_Clip[1]);
         Application.OpenURL("https://github.com/SnoopFraud");
     }
     public void QuitGame()
     {
+        SFX_Source.PlayOneShot(SFX_Clip[2]);
         Application.Quit();
         Debug.Log("Quitting....");
     }
