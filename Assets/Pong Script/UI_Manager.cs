@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.PlayerLoop;
 
 public enum alphavalue
 {
@@ -125,21 +124,23 @@ public class UI_Manager : MonoBehaviour
         Debug.Log("Continue the game");
     }
 
-    public void Restart()
+    public void Restart(string SceneName)
     {
         SFX_Source.PlayOneShot(SFX_Clip[0]);
-        SceneManager.LoadScene("Pong");
+        SceneManager.LoadScene(SceneName);
     }
 
-    public void P1Wins()
+    public IEnumerator P1Wins()
     {
+        yield return new WaitForSeconds(2f);
         FinishPage.SetActive(true);
         FinishText.text = "P1 WINS";
         GameOverSelected.Select();
         Time.timeScale = 0;
     }
-    public void P2Wins()
+    public IEnumerator P2Wins()
     {
+        yield return new WaitForSeconds(2f);
         FinishPage.SetActive(true);
         FinishText.text = "P2 WINS";
         GameOverSelected.Select();

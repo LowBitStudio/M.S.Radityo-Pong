@@ -18,8 +18,9 @@ public class ScoreManager : MonoBehaviour
 
         if(_homeScore == _maxScore)
         {
+            ball.BallDisappear();
             //UI text said that P1 wins
-            UI.P1Wins();
+            StartCoroutine(UI.P1Wins());
         }
     }
 
@@ -30,13 +31,9 @@ public class ScoreManager : MonoBehaviour
         
         if(_awayScore == _maxScore)
         {
+            ball.BallDisappear();
             //UI text said that P2 Wins
-            UI.P2Wins();
+            StartCoroutine(UI.P2Wins());
         }
-    }
-
-    public void GameOver()
-    {
-        SceneManager.LoadScene("Main Menu");
     }
 }

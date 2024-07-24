@@ -1107,10 +1107,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A classic pong experience where you play as one of the paddles to earn
-    some score by directed the ball to your opponent's goal. This game also contains
-    power up as well to make the game more exciting and mayhem during the match.
-    The game will be available on Itch.IO, playable on the web.
+  m_text: 'A classic pong experience where you play as one of the paddles to earn
+    some score by directed the ball to your opponent''s goal. This game also had
+    power ups as well! So please do your best!
+
+
+    Sound Effect by JDWasabi'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2179,7 +2181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CLASSIC PONG
+  m_text: POWER PONG
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33f7f09a9d7ae4044b5007ac627d5d4d, type: 2}
   m_sharedMaterial: {fileID: 5725151212422887455, guid: 33f7f09a9d7ae4044b5007ac627d5d4d, type: 2}
@@ -2780,7 +2782,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Pong
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1223613213
@@ -3159,7 +3161,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Pong AI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1358331909

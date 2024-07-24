@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9557de1e0847f7c4197d0763ce51a250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 50247085}
   PaddleName: Paddle 2
   defaultSpeed: 5
   _move:
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9557de1e0847f7c4197d0763ce51a250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 50247085}
   PaddleName: Paddle 1
   defaultSpeed: 5
   _move:
@@ -4093,7 +4093,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Pong
+          m_StringArgument: Pong AI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1418697787
@@ -5236,7 +5236,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Pong
+          m_StringArgument: Pong AI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1953869557
@@ -5359,6 +5359,14 @@ PrefabInstance:
       objectReference: {fileID: 223677586}
     - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
       propertyPath: Speed.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
+      propertyPath: BallDir.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
+      propertyPath: BallSpeed
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}

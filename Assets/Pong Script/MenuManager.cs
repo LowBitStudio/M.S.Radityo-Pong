@@ -30,13 +30,12 @@ public class MenuManager : MonoBehaviour
     public void OnePlayer_Scene()
     {
         SFX_Source.PlayOneShot(SFX_Clip[1]);
-        SceneManager.LoadScene("Pong");
+        SceneManager.LoadScene("Pong AI");
     }
     public void TwoPlayer_Scene()
     {
         SFX_Source.PlayOneShot(SFX_Clip[1]);
-        Debug.Log("Coming Soon");
-        //SceneManager.LoadScene("Pong");
+        SceneManager.LoadScene("Pong");
     }
     bool PlayActive;
     
