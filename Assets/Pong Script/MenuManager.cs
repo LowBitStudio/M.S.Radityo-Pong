@@ -80,10 +80,10 @@ public class MenuManager : MonoBehaviour
             PrimaryMenuSelect.Select();
         }
     }
-    public void OpenUrl()
+    public void OpenUrl(string URL)
     {
         SFX_Source.PlayOneShot(SFX_Clip[1]);
-        Application.OpenURL("https://github.com/SnoopFraud");
+        Application.OpenURL(URL);
     }
     public void QuitGame()
     {
