@@ -3179,6 +3179,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!212 &1047298101 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8772180992944357764, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
+  m_PrefabInstance: {fileID: 534952067275962087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1052098280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,6 +5355,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 309101863}
     - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 1047298101}
+    - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
       propertyPath: Paddle1
       value: 
       objectReference: {fileID: 766937391}
@@ -5365,6 +5374,10 @@ PrefabInstance:
       propertyPath: SFX_Source
       value: 
       objectReference: {fileID: 1047298100}
+    - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
+      propertyPath: ballCollider
+      value: 
+      objectReference: {fileID: 1047298098}
     - target: {fileID: 3143475889470877437, guid: abea9243ff89b744fa3d9aad5226f5dc, type: 3}
       propertyPath: SFX_Clip.Array.size
       value: 4

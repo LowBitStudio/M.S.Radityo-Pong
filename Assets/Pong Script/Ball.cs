@@ -24,6 +24,7 @@ public class Ball : MonoBehaviour
     [Header("Visual Effects")]
     public ParticleSystem BallParticle;
     public SpriteRenderer sr;
+    public Collider2D ballCollider;
     [Header("Audio")]
     public AudioSource SFX_Source;
     public AudioClip[] SFX_Clip;
@@ -53,6 +54,7 @@ public class Ball : MonoBehaviour
     {
         BallParticle.Play(); //Play the particle
         sr.enabled = false; //turn sprite off
+        ballCollider.enabled = false; //turn off collider
         SFX_Source.PlayOneShot(SFX_Clip[1]); //Play the blast sfx
     }
     public IEnumerator ResetBall()
@@ -61,6 +63,7 @@ public class Ball : MonoBehaviour
         yield return new WaitForSeconds(2f);
         sr.enabled = true; //Turn back the renderer
         transform.position = new Vector2(resetpos.x, resetpos.y); //reset the position
+        ballCollider.enabled = true;
         HitCounter = 0;
     }
 
